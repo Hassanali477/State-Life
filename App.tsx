@@ -5,8 +5,8 @@ import SwiperScreen from './src/SwiperScreen';
 const App = () => {
   return (
     <View style={styles.Container}>
-      <SwiperScreen />
-      {/* <MainFormScreen /> */}
+      {/* <SwiperScreen /> */}
+      <MainFormScreen />
     </View>
   );
 };

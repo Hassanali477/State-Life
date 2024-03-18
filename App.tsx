@@ -4,6 +4,7 @@ import MainFormScreen from './src/MainFormScreen';
 import SwiperScreen from './src/SwiperScreen';
 import PolicyServicing from './src/PolicyServicing';
 import LifeInsurance from './src/LifeInsurance';
+import HealthInsurrance from './src/HealthInsurrance';
 const App = () => {
   return (
     <View style={styles.Container}>
@@ -11,6 +12,7 @@ const App = () => {
       {/* <MainFormScreen /> */}
       {/* <PolicyServicing /> */}
       <LifeInsurance />
+      {/* <HealthInsurrance /> */}
     </View>
   );
 };

@@ -31,17 +31,17 @@ const LifeInsuranceFlatlist = ({item}) => {
           <Text style={styles.policyNo}>{item.paidAmount}</Text>
         </View>
         <View style={{flexDirection: 'row'}}>
-          <Text style={styles.policyDate}>Order Date</Text>
+          <Text style={styles.orderDate}>Order Date</Text>
           <Text
             style={[
-              styles.policyDate,
+              styles.orderDate,
               {color: 'grey', marginLeft: 5, fontWeight: 'bold'},
             ]}>
             {item.orderDate}
           </Text>
         </View>
       </View>
-      <View style={styles.leftContainer}>{/* Left container content */}</View>
+      <View style={styles.leftContainer}></View>
       <View style={styles.rightContainer}>
         <Text style={styles.statusHeading}>Status</Text>
         <View
@@ -63,7 +63,7 @@ const LifeInsuranceFlatlist = ({item}) => {
             style={[
               styles.statusText,
               {
-                color: item.status === 'issued' ? '#4CAF50' : '#FFEB3B',
+                color: item.status === 'issued' ? '#4CAF50' : '#E0BE24',
                 marginLeft: 5, // Adjust the margin as needed
               },
             ]}>
@@ -124,9 +124,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     borderRadius: 5,
     padding: 8,
-    backgroundColor: '#3A649F',
+    backgroundColor: '#1F93D1',
     marginTop: 10,
     marginBottom: 20,
+    fontWeight:'bold',
   },
   policyNoText: {
     fontSize: 12,
@@ -139,14 +140,14 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     fontWeight: 'bold',
   },
-  orderNo:{
+  orderNo: {
     fontSize: 12,
     color: 'grey',
     marginBottom: 5,
     marginLeft: 5,
     fontWeight: 'bold',
   },
-  policyDate: {
+  orderDate: {
     fontSize: 12,
     color: '#1F93D1',
   },

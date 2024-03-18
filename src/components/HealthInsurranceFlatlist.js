@@ -5,7 +5,6 @@ import {
   Text,
   View,
   Dimensions,
-  ScrollView,
   TouchableOpacity,
   Image,
 } from 'react-native';
@@ -13,54 +12,84 @@ import {
 const screenWidth = Dimensions.get('screen').width;
 const screenHeight = Dimensions.get('screen').height;
 
-const RenderPolicy = ({item}) => {
+const HealthInsurranceFlatlist = ({ item }) => {
+  let statusBackgroundColor, statusTextColor, statusText;
+
+  // Set background, text color, and text based on status
+  switch (item.status) {
+    case 'issued':
+      statusBackgroundColor = '#BAF5D8';
+      statusTextColor = '#00B982';
+      statusText = 'Issued';
+      break;
+    case 'cancelled':
+      statusBackgroundColor = '#FBE5E6';
+      statusTextColor = '#DD0D0C';
+      statusText = 'Cancelled';
+      break;
+    case 'pending':
+      statusBackgroundColor = '#FBF5D3';
+      statusTextColor = '#DEBF24';
+      statusText = 'Pending';
+      break;
+    default:
+      statusBackgroundColor = 'green';
+      statusTextColor = 'white';
+      statusText = 'Unknown';
+  }
+
   return (
     <View style={styles.item}>
       <View style={styles.leftContainer}>
         <Text style={styles.heading}>{item.heading}</Text>
         <Text style={styles.subheading}>{item.subheading}</Text>
-        <View style={{flexDirection: 'row'}}>
+        <TouchableOpacity>
+          <Text style={styles.buttonTitle}>{item.buttonTitle}</Text>
+        </TouchableOpacity>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={styles.policyNoText}>Policy No:</Text>
-          <Text style={styles.policyNo}>{item.policyNo}</Text>
+          <Text style={styles.orderNo}>{item.policyNo}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
-          <Text style={styles.policyDate}>Policy Date:</Text>
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={styles.policyNoText}>Paid Amount:</Text>
+          <Text style={styles.policyNo}>{item.paidAmount}</Text>
+        </View>
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={styles.policyNoText}>Policy Date:</Text>
           <Text
             style={[
-              styles.policyDate,
-              {color: 'grey', marginLeft: 5, fontWeight: 'bold'},
+              styles.orderDate,
+              { color: 'grey', marginLeft: 5, fontWeight: 'bold' },
             ]}>
             {item.policyDate}
           </Text>
         </View>
       </View>
-      <View style={styles.leftContainer}>{/* Left container content */}</View>
+      <View style={styles.leftContainer}></View>
       <View style={styles.rightContainer}>
         <Text style={styles.statusHeading}>Status</Text>
         <View
           style={[
             styles.statusIndicator,
             {
-              backgroundColor: item.status === 'issued' ? '#C8E6C9' : '#FFF9C4',
+              backgroundColor: statusBackgroundColor,
             },
           ]}>
-          {/* Image */}
           <TouchableOpacity style={styles.imageContainer}>
             <Image
-              source={require('../Assets/Images/blue-arrow.png')}
+              source={require('../Assets/Images/right.png')}
               style={styles.arrowLeft}
             />
           </TouchableOpacity>
-          {/* Text */}
           <Text
             style={[
               styles.statusText,
               {
-                color: item.status === 'issued' ? '#4CAF50' : '#EBC923',
-                marginLeft: 5, // Adjust the margin as needed
+                color: statusTextColor,
+                marginLeft: 5,
               },
             ]}>
-            {item.status === 'issued' ? 'Issued' : 'Pending'}
+            {statusText}
           </Text>
         </View>
       </View>
@@ -68,14 +97,9 @@ const RenderPolicy = ({item}) => {
   );
 };
 
+export default HealthInsurranceFlatlist;
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: screenWidth,
-    height: screenHeight,
-    paddingTop: 22,
-    backgroundColor: '#fff',
-  },
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -91,14 +115,8 @@ const styles = StyleSheet.create({
   leftContainer: {
     flex: 1,
   },
-  headingPolicy: {
-    // marginLeft: 30,
-    color: '#3A649F',
-    fontSize: 24,
-    fontWeight: '800',
-  },
   heading: {
-    color: '#3A649F',
+    color: '#5B6770',
     fontSize: 18,
     fontWeight: 'bold',
     width: 200,
@@ -106,28 +124,44 @@ const styles = StyleSheet.create({
   subheading: {
     fontSize: 12,
     fontWeight: 'bold',
-    // fontStyle: 'italic',
-    marginBottom: 20,
     color: '#1F93D1',
-    width: 160,
+    width: 300,
+  },
+  buttonTitle: {
+    color: 'white',
+    fontSize: 12,
+    textAlign: 'center',
+    borderRadius: 5,
+    padding: 8,
+    backgroundColor: '#1F93D1',
+    marginTop: 10,
+    marginBottom: 20,
+    fontWeight: 'bold',
   },
   policyNoText: {
     fontSize: 12,
-    color: '#ccc',
+    color: '#1F93D1',
   },
   policyNo: {
+    fontSize: 12,
+    color: '#1F93D1',
+    marginBottom: 5,
+    marginLeft: 5,
+    fontWeight: 'bold',
+  },
+  orderNo: {
     fontSize: 12,
     color: 'grey',
     marginBottom: 5,
     marginLeft: 5,
     fontWeight: 'bold',
   },
-  policyDate: {
+  orderDate: {
     fontSize: 12,
-    color: '#ccc',
+    color: '#1F93D1',
   },
   statusHeading: {
-    color: '#13A1DE',
+    color: '#7FCEFC',
     fontSize: 12,
     fontWeight: 'bold',
     marginTop: 30,
@@ -135,36 +169,27 @@ const styles = StyleSheet.create({
   statusIndicator: {
     width: 80,
     height: 40,
-    backgroundColor: 'green',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
-    marginRight: 40,
+    marginRight: 20,
     marginTop: 20,
   },
   statusText: {
-    color: 'white',
     fontWeight: 'bold',
   },
   imageContainer: {
     width: 40,
     height: 40,
-    backgroundColor: '#dce3dc',
-    borderWidth: 1,
-    borderColor: '#95D8FD',
-    borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
     right: 10,
-    left: 85,
+    left: 80,
   },
   arrowLeft: {
-    width: 16,
-    height: 16,
-    borderRadius: 5,
+    width: 20,
+    height: 20,
     justifyContent: 'center',
   },
 });
-
-export default RenderPolicy;

@@ -69,24 +69,25 @@ const PolicyServicing = () => {
           placeholder="Search..."
           style={styles.textInputSearch}
           placeholderTextColor={'#ccc'}
+          scrollEnabled={true}
         />
         <TouchableOpacity>
           <Text style={styles.searchButton}>Policy Insights</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.headingPolicy}>Policy Servicing</Text>
-      <FlatList
-        alwaysBounceVertical={false}
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        style={{width: '100%', marginVertical: 10, flexGrow: 1, flex: 1}}
-        contentContainerStyle={{
-          flexGrow: 1,
-          paddingBottom: screenWidth * 0.4,
-          width: '100%',
-        }}
-      />
+        <FlatList
+          alwaysBounceVertical={false}
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          style={{width: '100%', marginVertical: 6, flexGrow: 1, flex: 1}}
+          contentContainerStyle={{
+            flexGrow: 1,
+            paddingBottom: screenWidth * 0.4,
+            width: '100%',
+          }}
+        />
     </View>
   );
 };
@@ -125,6 +126,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     elevation: 3,
     marginRight: 7,
+    color: 'grey',
   },
   searchButton: {
     width: 120,

@@ -5,14 +5,16 @@ import SwiperScreen from './src/SwiperScreen';
 import PolicyServicing from './src/PolicyServicing';
 import LifeInsurance from './src/LifeInsurance';
 import HealthInsurrance from './src/HealthInsurrance';
+import MainScreenButton from './src/MainScreenButton';
+import CancellationRequest from './src/CancellationRequest';
 const App = () => {
   return (
     <View style={styles.Container}>
       {/* <SwiperScreen /> */}
       {/* <MainFormScreen /> */}
       {/* <PolicyServicing /> */}
-      <LifeInsurance />
-      {/* <HealthInsurrance /> */}
+      {/* <MainScreenButton /> */}
+      <CancellationRequest />
     </View>
   );
 };

@@ -178,13 +178,12 @@ const PersonalDetails = () => {
               />
             </TouchableOpacity>
           </View>
-          {/* Modal for Profession */}
           <Modal
             isVisible={modalVisible}
             onBackdropPress={closeModal}
             animationIn="zoomInDown"
             animationOut="zoomOutUp"
-            style={styles.modal}>
+            style={styles.modal} >
             <View style={styles.modalContent}>
               <ScrollView>
                 {dataProfession.map((option, index) => (

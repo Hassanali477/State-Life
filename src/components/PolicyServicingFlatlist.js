@@ -10,21 +10,17 @@ import {
   Image,
   Modal,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import CancellationRequest from '../CancellationRequest';
 
 const screenWidth = Dimensions.get('screen').width;
 const screenHeight = Dimensions.get('screen').height;
 
 const RenderPolicy = ({item}) => {
-  const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleModalOpen = () => {
     setModalVisible(true);
   };
   const handleRequestCancellation = () => {
-    navigation.navigate('CancellationRequest');
     setModalVisible(false);
   };
   const handleSubmittedRequests = () => {

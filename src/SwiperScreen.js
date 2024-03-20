@@ -40,7 +40,7 @@ const App = () => (
           source={require('./Assets/Images/swiper.png')}
           style={styles.image}
         />
-        <Text style={styles.swiperText}>Hello here dasdasdjagsdjgakjs</Text>
+        <Text style={styles.swiperText}>Change You Desired Plan</Text>
       </View>
       <View style={styles.slide}>
         <Text style={styles.number}>03</Text>
@@ -48,7 +48,7 @@ const App = () => (
           source={require('./Assets/Images/swiper.png')}
           style={styles.image}
         />
-        <Text style={styles.swiperText}>Hello here dasdasdjagsdjgakjs</Text>
+        <Text style={styles.swiperText}>Change You Desired Plan</Text>
       </View>
       <View style={styles.slide}>
         <Text style={styles.number}>04</Text>
@@ -56,7 +56,7 @@ const App = () => (
           source={require('./Assets/Images/swiper.png')}
           style={styles.image}
         />
-        <Text style={styles.swiperText}>Hello here dasdasdjagsdjgakjs</Text>
+        <Text style={styles.swiperText}>Change You Desired Plan</Text>
       </View>
       <View style={styles.slide}>
         <Text style={styles.number}>05</Text>
@@ -64,7 +64,7 @@ const App = () => (
           source={require('./Assets/Images/swiper.png')}
           style={styles.image}
         />
-        <Text style={styles.swiperText}>Hello here dasdasdjagsdjgakjs</Text>
+        <Text style={styles.swiperText}>Change You Desired Plan</Text>
       </View>
     </SwiperFlatList>
   </ImageBackground>

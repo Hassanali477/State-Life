@@ -7,6 +7,7 @@ import LifeInsurance from './src/LifeInsurance';
 import HealthInsurrance from './src/HealthInsurrance';
 import MainScreenButton from './src/MainScreenButton';
 import CancellationRequest from './src/CancellationRequest';
+import ComplaintStatus from './src/ComplaintStatus';
 const App = () => {
   return (
     <View style={styles.Container}>
@@ -14,7 +15,8 @@ const App = () => {
       {/* <MainFormScreen /> */}
       {/* <PolicyServicing /> */}
       {/* <MainScreenButton /> */}
-      <CancellationRequest />
+      {/* <CancellationRequest /> */}
+      {/* <ComplaintStatus /> */}
     </View>
   );
 };

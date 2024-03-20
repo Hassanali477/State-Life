@@ -11,7 +11,7 @@ import {
 const screenWidth = Dimensions.get('screen').width;
 const screenHeight = Dimensions.get('screen').height;
 
-const CancellationRequest = ({navigation}) => {
+const CancellationRequest = () => {
   const [reason, setReason] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 

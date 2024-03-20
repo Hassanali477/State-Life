@@ -242,8 +242,8 @@ const PolicyInsights = () => {
               <Text style={styles.buttonCancel}>Cancel</Text>
             </TouchableOpacity>
           </View>
-          {/* )} */}
         </Modal>
+
         <View
           style={{
             flexDirection: 'row',

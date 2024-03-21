@@ -8,6 +8,7 @@ import HealthInsurrance from './src/HealthInsurrance';
 import MainScreenButton from './src/MainScreenButton';
 import CancellationRequest from './src/CancellationRequest';
 import ComplaintStatus from './src/ComplaintStatus';
+import ClaimForms from './src/ClaimForms';
 const App = () => {
   return (
     <View style={styles.Container}>
@@ -17,6 +18,7 @@ const App = () => {
       {/* <MainScreenButton /> */}
       {/* <CancellationRequest /> */}
       {/* <ComplaintStatus /> */}
+      <ClaimForms />
     </View>
   );
 };
